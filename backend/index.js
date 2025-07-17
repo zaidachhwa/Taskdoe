@@ -14,7 +14,7 @@ const PORT = process.env.PORT;
 // middleware
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://taskdoe.netlify.app",
     credentials: true,
   })
 );
