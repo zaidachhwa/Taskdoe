@@ -15,6 +15,9 @@ const pool = new Pool({
   ssl: {
     rejectUnauthorized: false,
   },
+  max: 10, // max number of clients
+  idleTimeoutMillis: 30000, // close idle clients after 30 seconds
+  connectionTimeoutMillis: 2000, // return an error if connection takes more than 2s
 });
 
 module.exports = pool;
