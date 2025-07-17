@@ -52,14 +52,16 @@ async function handleUserLogin(req, res) {
     };
 
     const token = jwt.sign(payload, secret);
-
-    res
-      .cookie("token", token)
-      .json({
-        data: user.rows[0],
-        token: token,
-        message: "Logged In Successfully",
-      });
+    const options = {
+      httpOnly: true,
+      secure: true, // required for HTTPS
+      sameSite: "None",
+    };
+    res.cookie("token", token, options).json({
+      data: user.rows[0],
+      token: token,
+      message: "Logged In Successfully",
+    });
   } catch (error) {
     console.log(error);
   }
