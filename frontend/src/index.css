@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  --font-satoshi: "Satoshi", sans-serif;
+  --color-custom-purple: #8160af;
+  --color-custom-bg: #ffffff;
+  --color-custom-secondary: #f0f0f0;
+}
+
+/* * Base colors */
+/* --clr-dark-a0: #000000;
+--clr-light-a0: #ffffff; */
+
+/** Theme primary colors */
+/* --clr-primary-a0: #6f2be8;
+--clr-primary-a10: #7538dc;
+--clr-primary-a20: #7943d1;
+--clr-primary-a30: #7d4dc6;
+--clr-primary-a40: #8057ba;
+--clr-primary-a50: #8160af; */
+
+/** Theme surface colors */
+/* --clr-surface-a0: #ffffff;
+--clr-surface-a10: #f0f0f0;
+--clr-surface-a20: #e1e1e1;
+--clr-surface-a30: #d3d3d3;
+--clr-surface-a40: #c5c5c5;
+--clr-surface-a50: #b6b6b6;
+
+/** Theme tonal surface colors */
+/* --clr-surface-tonal-a0: #f3eafe;
+--clr-surface-tonal-a10: #e6deef;
+--clr-surface-tonal-a20: #d8d1e1;
+--clr-surface-tonal-a30: #cbc5d2;
+--clr-surface-tonal-a40: #beb9c4;
+--clr-surface-tonal-a50: #b1aeb6; */
+*/
+
+/** Examples */
+.bg-primary {
+  color: var(--clr-primary-a50);
+  background-color: var(--clr-surface-a0);
+}
