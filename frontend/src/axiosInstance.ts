@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://taskdoe-production.up.railway.app";
+const BASE_URL = "/api";
 
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
