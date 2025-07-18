@@ -1,13 +1,21 @@
 [build]
-  command = "npm run build"
-  publish = "dist" # or "build" if you are using CRA instead of Vite
+command = "npm run build"
+publish = "dist"
 
 [[redirects]]
-  from = "/api/*"
-  to = "https://taskdoe-production.up.railway.app/:splat"
-  status = 200
-  force = true
-  headers = { 
-    Access-Control-Allow-Origin = "*",
-    Access-Control-Allow-Credentials = "true"
-  }
+from = "/api/*"
+to = "https://taskdoe-production.up.railway.app/:splat"
+status = 200
+force = true
+
+[[headers]]
+for = "/api/"
+[headers.values]
+Access-Control-Allow-Origin = ""
+Access-Control-Allow-Credentials = "true"
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
+
