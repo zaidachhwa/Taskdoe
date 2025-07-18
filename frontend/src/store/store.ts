@@ -4,19 +4,16 @@ import toast from "react-hot-toast";
 
 interface storeState {
   loading: boolean;
-  isEditable: boolean;
   addTask: string;
   allTasks: [];
-  editedTask: string;
+
   totalTodos: number;
   completedTodos: number;
 
   setLoading: (value: boolean) => void;
-  setIsEditable: (value: boolean) => void;
   setAddTask: (value: string) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   setAllTasks: (val: any) => void;
-  setEditedTask: (val: string) => void;
 
   getAllTodos: () => void;
   handleDeleteTodo: (id: number) => void;
@@ -27,18 +24,17 @@ interface storeState {
 
 const Store = create<storeState>((set) => ({
   loading: false,
-  isEditable: false,
+
   addTask: "",
   allTasks: [],
-  editedTask: "",
+
   totalTodos: 0,
   completedTodos: 0,
 
   setLoading: (state) => set({ loading: state }),
-  setIsEditable: (state) => set({ isEditable: state }),
+
   setAddTask: (state) => set({ addTask: state }),
   setAllTasks: (state) => set({ allTasks: state }),
-  setEditedTask: (state) => set({ editedTask: state }),
 
   getAllTodos: async () => {
     try {
@@ -96,7 +92,6 @@ const Store = create<storeState>((set) => ({
         description,
       });
 
-      set({ isEditable: false });
       console.log(res);
     } catch (error) {
       console.log(error);

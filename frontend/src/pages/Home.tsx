@@ -15,10 +15,8 @@ const Home: React.FC = () => {
   const {
     addTask,
     allTasks,
-    isEditable,
     loading,
     setAddTask,
-    setIsEditable,
     setLoading,
     getAllTodos,
     totalTodos,
@@ -122,14 +120,7 @@ const Home: React.FC = () => {
         <div className="w-full mx-auto md:w-7/12 lg:w-6/12 mt-10 p-3 flex flex-col items-center gap-5 justify-center">
           {allTasks.length !== 0 ? (
             allTasks.map((task: TaskObject) => {
-              return (
-                <Task
-                  key={task.todo_id}
-                  task={task}
-                  isEditable={isEditable}
-                  setIsEditable={setIsEditable}
-                />
-              );
+              return <Task key={task.todo_id} task={task} />;
             })
           ) : (
             <h3 className="font-semibold text-custom-purple">

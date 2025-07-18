@@ -1,5 +1,5 @@
 import { SquarePen, Trash } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
 import Store from "../store/store";
 
 interface TaskObject {
@@ -9,21 +9,15 @@ interface TaskObject {
 }
 
 interface TaskProps {
-  isEditable: boolean;
   task: TaskObject;
-  setIsEditable: (val: boolean) => void;
 }
 
 const Task: React.FC<TaskProps> = (props) => {
-  const {
-    handleDeleteTodo,
-    handleStatusTodo,
-    handleTodoEdit,
-    editedTask,
-    setEditedTask,
-  } = Store();
-  const { isEditable, setIsEditable } = props;
+  const { handleDeleteTodo, handleStatusTodo, handleTodoEdit } = Store();
   const { description, status, todo_id } = props.task;
+
+  const [isEditable, setIsEditable] = useState(false);
+  const [localEditedTask, setLocalEditedTask] = useState(description);
   return (
     <>
       <div
@@ -47,13 +41,11 @@ const Task: React.FC<TaskProps> = (props) => {
         ></div>
         <input
           type="text"
-          className={`${isEditable ? "w-3/4" : "w-1/2 md:w-2/3"}
-          ${status === "Ongoing" ? "" : "line-through"}
-          outline-0 p-2 text-custom-purple font-semibold`}
-          name=""
-          id=""
-          onChange={(e) => setEditedTask(e.target.value)}
-          value={editedTask || description}
+          className={`${isEditable ? "w-3/4" : "w-1/2 md:w-2/3"} ${
+            status === "Ongoing" ? "" : "line-through"
+          } outline-0 p-2 text-custom-purple font-semibold`}
+          value={localEditedTask}
+          onChange={(e) => setLocalEditedTask(e.target.value)}
           disabled={!isEditable}
         />
         <button
@@ -61,7 +53,10 @@ const Task: React.FC<TaskProps> = (props) => {
           className={`cursor-pointer rounded-lg bg-custom-purple text-white p-2 px-3  ${
             isEditable ? "" : "hidden"
           }`}
-          onClick={() => handleTodoEdit(todo_id, editedTask)}
+          onClick={() => {
+            handleTodoEdit(todo_id, localEditedTask);
+            setIsEditable(false);
+          }}
         >
           Edit
         </button>
