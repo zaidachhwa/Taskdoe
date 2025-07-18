@@ -5,6 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axiosInstance from "../axiosInstance";
 import toast from "react-hot-toast";
+import Store from "../store/store";
 
 const userSchema = yup.object({
   email: yup
@@ -41,9 +42,11 @@ const Login: React.FC = () => {
   });
   const navigate = useNavigate();
 
+  const { loading, setLoading } = Store();
+
   const onSubmit = async (data: Inputs) => {
     const { email, password } = data;
-
+    setLoading(true);
     try {
       const res = await axiosInstance.post("/users/login", {
         email,
@@ -61,6 +64,7 @@ const Login: React.FC = () => {
       const err: string = error.response.data.message;
       toast.error(err);
     } finally {
+      setLoading(false);
       reset();
     }
   };
@@ -113,7 +117,7 @@ const Login: React.FC = () => {
             type="submit"
             className="bg-custom-purple cursor-pointer hover:bg-custom-purple/90 text-white w-10/12 p-2 rounded-lg"
           >
-            Login
+            {loading ? "Logging In..." : "Login"}
           </button>
           <p className="text-sm">
             Don't have an Account?

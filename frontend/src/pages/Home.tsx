@@ -63,9 +63,14 @@ const Home: React.FC = () => {
         {/* Nav */}
         <div className="w-full mx-auto md:w-9/12 flex items-center justify-between p-3 text-custom-purple">
           <div className="logo flex font-semibold text-3xl">Taskdoe</div>
-          <div className="border-2 rounded-full p-1 flex items-center justify-center">
+          <a
+            href="https://github.com/zaidachhwa"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border-2 rounded-full p-1 flex items-center justify-center"
+          >
             <Github />
-          </div>
+          </a>
         </div>
 
         {/* Todo's Stats */}

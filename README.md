@@ -1,6 +1,6 @@
-# 📝 Looply - A Simple Todo App
+# 📝 Taskdoe - A Simple Todo App
 
-Looply is a full-stack web application built using the **PERN stack** (PostgreSQL, Express, React, Node.js) that allows users to register, log in, and manage their daily tasks effectively.
+Taskdoe is a full-stack web application built using the **PERN stack** (PostgreSQL, Express, React, Node.js) that allows users to register, log in, and manage their daily tasks effectively.
 
 ## 🚀 Features
 
@@ -18,4 +18,4 @@ Looply is a full-stack web application built using the **PERN stack** (PostgreSQ
 - **Backend**: Node.js + Express.js + PostgreSQL
 - **Database Hosting**: [Supabase](https://supabase.io/)
 - **Frontend Hosting**: [Netlify](https://netlify.com/)
-- **API Testing**: Postman 
+- **API Testing**: Postman
